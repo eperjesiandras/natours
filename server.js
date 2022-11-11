@@ -70,3 +70,10 @@ process.on("unhandledRejection", (err) => {
 10 - Internal JavaScript Run-Time Failure: The JavaScript source code internal in Node's bootstrapping process threw an error when the bootstrapping function was called. This is extremely rare, and generally can only happen during the development of Node itself.
 11 - Invalid Debug Argument: The --debug and/or --debug-brk options were set, but an invalid port number was chosen
 >128 - Signal Exits: If Node receives a fatal signal such as SIGKILL or SIGHUP, then its exit code will be 128 plus the value of the signal code. This is a standard Unix practice, since exit codes are defined to be 7-bit integers, and signal exits set the high-order bit, and then contain the value of the signal code.*/
+
+process.on("SIGTERM", () => {
+  console.log(" 😴 SIGTERM received. Shutting down gracefully");
+  server.close(() => {
+    console.log("🔔 Process terminated");
+  });
+});
