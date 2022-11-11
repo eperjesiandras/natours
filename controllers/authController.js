@@ -49,7 +49,7 @@ exports.signup = catchAsync(async (req, res, next) => {
 
   const url = `${req.protocol}://${req.get("host")}/me`;
   /*const url = "http://127.0.0.1:3000/me" --- see above the template literal!*/
-  console.log(url);
+  //console.log(url);
   await new Email(newUser, url).sendWelcome();
 
   createSendToken(newUser, 201, res);

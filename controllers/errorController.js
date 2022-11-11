@@ -11,7 +11,7 @@ const handleCastErrorDB = (err) => {
 const handleDuplicateFieldsDB = (err) => {
   /*https://stackoverflow.com/questions/171480/regex-grabbing-values-between-quotation-marks*/
   const value = err.errmsg.match(/(["'])(?:(?=(\\?))\2.)*?\1/)[0]; /*is in the first line of the error array*/
-  console.log(value);
+  //console.log(value);
 
   const message = `Duplicate field value: ${value}. Please use another value!`;
   return new AppError(message, 400);

@@ -236,11 +236,11 @@ tourSchema.pre(/^find/, function (next) {
 /*populate will show us all the public guide data (except __v, passwordchangedAt, passwordResetExpires and passwordResetToken), referenced in the relevant tour*/
 /*💥POPULATE IS RESOURCE HEAVY!!*/
 /**/
-/*🗃️TIME CALCULATOR*/
-tourSchema.post(/^find/, function (docs, next) {
-  console.log(`Query took ${Date.now() - this.start} milliseconds!`);
-  next();
-});
+/*🗃️TIME CALCULATOR - ONLY FOR TESTING PURPOSES*/
+// tourSchema.post(/^find/, function (docs, next) {
+//   console.log(`Query took ${Date.now() - this.start} milliseconds!`);
+//   next();
+// });
 
 /*💾AGGREGATION MIDDLEWARE*/
 const GEOSPATIAL_OPERATOR_TEST = /^[$]geo[a-zA-Z]*/;
